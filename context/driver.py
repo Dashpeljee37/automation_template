@@ -23,18 +23,15 @@ class Driver(object):
                     self.driver = webdriver.Chrome()
                 elif settings.browser == "firefox":
                     self.driver = webdriver.Firefox()
-                else:
-                    raise SeleniumDriverNotFound(
-                        f"{settings.browser} not currently supported")
             elif settings.automation_type == 'MOBILE':
                 print(f"connection to appium server => {settings.capabilities}")
                 try:
                     self.driver = appiumWebDriver.Remote(settings.avd_server, settings.capabilities)
                 except:
-                    print("sda haana aldaa garaad bnaa")
+                    print("Getting error on load driver")
                 print("connected to appium server")
         except:
-            print("sda ymaa")
+            print("getting error")
 
     def get_driver(self):
         return self.driver

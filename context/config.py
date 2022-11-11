@@ -18,6 +18,7 @@ class Settings(object):
                 "app": self.config['AVDdata']['AVD_APP'],
                 "deviceName": self.config['AVDdata']['AVD_DEVICE'],
                 "platformName": self.config['AVDdata']['PLATFORM_NAME']
+                #"enforceAppInstall" : "true"
             }
         elif self.automation_type == 'WEB':
             self.url = self.config['WEB']['url']
