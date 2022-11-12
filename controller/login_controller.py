@@ -3,7 +3,7 @@ import time
 from context.config import settings
 from pages.page import Page
 from pages.login_locator import LoginPageLocator
-import allure
+from context.allure_report import AllureReport
 
 class LoginPage(Page):
     
@@ -46,6 +46,8 @@ class LoginPage(Page):
         username.click()
         username.clear()
         username.send_keys(value)
+        super().picture(username,f"username оруулж дууссан.")
+        
 
     def check_value_from_username_by(self,value):
         username = super().get_element(LoginPageLocator.LOGIN_USERNAME)

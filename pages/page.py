@@ -6,8 +6,6 @@ from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 import allure
 from allure_commons.types import AttachmentType
-import io, base64
-from PIL import Image
 import os
 
 
@@ -44,9 +42,7 @@ class Page:
 
     def picture(self,element,name=""):
         path = ".\\.tmp\\temp.png"
-        self.driver.get_screenshot_as_file(path) 
-        # img = Image.open(io.BytesIO(base64.decodebytes(bytes(self.driver.get_screenshot_as_base64(), "utf-8"))))
-        # img.save(path)
+        element.screenshot(path)
         with open(path,"rb") as image:
             file = image.read()
             byte_array = bytearray(file)
